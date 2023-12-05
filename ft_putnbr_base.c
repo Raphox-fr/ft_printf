@@ -1,18 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:54:24 by rafaria           #+#    #+#             */
-/*   Updated: 2023/12/04 18:52:39 by rafaria          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 
 #include "ft_printf_lib.h"
-#include <unistd.h>
+#include<unistd.h>
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 int	ft_strlen(char *str)
 {
@@ -51,30 +45,33 @@ int	check_base(char *base)
 	return (1);
 }
 
-void	ft_putnbr_base(int nb, char *base)
+int	*ft_putnbr_base(int nb, char *base, int *len)
 {
 	if (check_base(base) == 0)
-		return ;
+		return (0);
 	if (base[0] == '\0' || ft_strlen(base) == 1 || ft_strlen(base) == 0)
-		return ;
+		return (0);
 	if (nb == -2147483648)
 	{
 		write(1, "-2147483648", 11);
-		return ;
+		return (0);
 	}
 	if (nb < 0)
 	{
-		ft_putchar('-');
 		nb = -nb;
 	}
 	if (nb >= ft_strlen(base))
 	{
+		len++;
 		ft_putnbr_base(nb / ft_strlen(base), base);
 	}
 	ft_putchar(base[nb % ft_strlen(base)]);
+	return (len);
 }
 
+/*
 int	main(void)
 {
 	ft_putnbr_base(42, "0123456789");
 }
+*/

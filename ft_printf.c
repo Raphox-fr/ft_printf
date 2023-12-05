@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:16:48 by rafaria           #+#    #+#             */
-/*   Updated: 2023/12/04 18:54:33 by rafaria          ###   ########.fr       */
+/*   Updated: 2023/12/05 18:54:17 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,33 @@
 int	ft_print(int type, va_list arg)
 {
    int b;
+   
    b = 0;
     if (type == 'c')
-        b = b + ft_putchar((va_arg(arg, int)));
+        return (ft_putchar((va_arg(arg, int))));
     else if (type == 's')
-        b = b + ft_putstr((va_arg(arg, char *)));
+        return (ft_putstr((va_arg(arg, char *))));
     else if (type == 'p')
-        ft_putnbr_base((va_arg(arg, char *)), "0123456789abcdef");
-    else if (type == 'd')
-        ft_putnbr_base((va_arg(arg, char *)), "0123456789");
-    // else if (type == 'i')
-    //     return();
-    // else if (type == 'u')
-    //     return();
+        ft_putnbr_base((va_arg(arg, char *)), "0123456789abcdef", &b);
+    // else if (type == 'd')
+    //     ft_putnbr_base((va_arg(arg, char *)), "0123456789");
+    else if (type == 'i' || type == 'd')
+        return (ft_itoa((va_arg(arg, int))));
+    else if (type == 'u')
+        return (ft_unsigned_itoa((va_arg(arg, int))));
     else if (type == 'x')
-        ft_putnbr_base((va_arg(arg, char *)), "0123456789abcdef");
+        ft_putnbr_base((va_arg(arg, char *)), "0123456789abcdef", &b);
     else if (type == 'X')
-        ft_putnbr_base((va_arg(arg, char *)), "0123456789abcdef");
+        ft_putnbr_base((va_arg(arg, char *)), "0123456789abcdef", &b);
     // else if (type == '%')
     //     return();
-    return(b);
-    
+    return(0);
 }
 
 //  x = Unsigned hexadecimal integer
 //  i = Signed decimal integer itoa
-//  u = Unsigned decimal integer itoa modifier, sans signe negatif
+//  u = Unsigned decimal integer itoa modifier, sans signe negatif 
+
 //  X = Unsigned hexadecimal integer (capital letters)
  
 
@@ -58,9 +59,8 @@ int	ft_printf(const char *str, ...)
     {
         if (str[bee] == '%')
         {
-            total = total + ft_print(str[bee + 1], arg);
-            bee = bee + 2;
-            
+            total = ft_print(str[bee + 1], arg);
+            bee++;
         }
         else
             total = total + write(1, &str[bee], 1);
@@ -68,8 +68,11 @@ int	ft_printf(const char *str, ...)
     }
     return total;
 }
+
 int main(void)
 {
-    char bee[] = "blyat fjbweb jw ltb";
-    printf("\n\n%d\n\n", ft_printf("%s", bee));
+    char bee[] = "bonjour";
+    // printf("\n\n%d\n\n", ft_printf("%s", bee));
+    printf("%d", ft_printf("%x\n", -56));
+    printf("%d", printf("%x\n", -56));
 }
