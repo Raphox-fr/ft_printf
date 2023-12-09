@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:54:19 by rafaria           #+#    #+#             */
-/*   Updated: 2023/12/04 18:26:31 by rafaria          ###   ########.fr       */
+/*   Updated: 2023/12/06 18:52:54 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_lib.h"
+#include "ft_lib.h"
 #include <unistd.h>
 
 int	ft_putstr(char *str)

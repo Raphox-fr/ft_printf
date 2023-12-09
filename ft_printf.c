@@ -3,48 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:16:48 by rafaria           #+#    #+#             */
-/*   Updated: 2023/12/05 18:54:17 by rafaria          ###   ########.fr       */
+/*   Updated: 2023/12/08 18:18:25 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_lib.h"
-# include<stdarg.h>
+#include "ft_lib.h"
+#include<stdarg.h>
 
 int	ft_print(int type, va_list arg)
 {
-   int b;
-   
-   b = 0;
     if (type == 'c')
         return (ft_putchar((va_arg(arg, int))));
     else if (type == 's')
         return (ft_putstr((va_arg(arg, char *))));
     else if (type == 'p')
-        ft_putnbr_base((va_arg(arg, char *)), "0123456789abcdef", &b);
-    // else if (type == 'd')
-    //     ft_putnbr_base((va_arg(arg, char *)), "0123456789");
+        return (ft_putnbr_base((va_arg(arg, int)), "0"));
     else if (type == 'i' || type == 'd')
         return (ft_itoa((va_arg(arg, int))));
-    else if (type == 'u')
-        return (ft_unsigned_itoa((va_arg(arg, int))));
+    // else if (type == 'u')
+    //     return (ft_unsigned_itoa((va_arg(arg, int))));
     else if (type == 'x')
-        ft_putnbr_base((va_arg(arg, char *)), "0123456789abcdef", &b);
+        return (ft_putnbr_base((va_arg(arg, int)), "0123456789abcdef"));
     else if (type == 'X')
-        ft_putnbr_base((va_arg(arg, char *)), "0123456789abcdef", &b);
-    // else if (type == '%')
-    //     return();
+        return (ft_putnbr_base((va_arg(arg, int)), "0123456789ABCDEF"));
+    else if (type == '%')
+        return(ft_putchar(va_arg(arg, int)));
     return(0);
 }
 
-//  x = Unsigned hexadecimal integer
-//  i = Signed decimal integer itoa
-//  u = Unsigned decimal integer itoa modifier, sans signe negatif 
+// good :
+// c good
+// s  good
+// p no good afficher l adresse
+// i
+// u
+// x
+// X
+// %
 
-//  X = Unsigned hexadecimal integer (capital letters)
- 
+//  i and d = Signed decimal integer itoa
+//  u = Unsigned decimal integer itoa modifier, sans signe negatif
+
 
 int	ft_printf(const char *str, ...)
 {
@@ -69,10 +71,23 @@ int	ft_printf(const char *str, ...)
     return total;
 }
 
+
+// c good
+// s  good
+// p no good afficher l adresse
+// i good
+// u pas fait
+// x
+// X
+// %
+
 int main(void)
 {
-    char bee[] = "bonjour";
-    // printf("\n\n%d\n\n", ft_printf("%s", bee));
-    printf("%d", ft_printf("%x\n", -56));
-    printf("%d", printf("%x\n", -56));
+    int i;
+    i = 42;
+    
+    printf("%d\n", ft_printf("%x\n", -5));
+    printf("\n\n\n");
+    printf("%d\n", printf("%x\n", -5));
+
 }
