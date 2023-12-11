@@ -4,9 +4,9 @@
 #include<unistd.h>
 
 
-int	ft_strlen(char *str)
+unsigned int	ft_strlen(char *str)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (str[i])
@@ -14,25 +14,21 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_get_size(int n)
+static size_t	ft_get_size(unsigned int n)
 {
-	int	size;
+	size_t	size;
 
 	size = 0;
-	if (n <= 0)
-		size++;
 	while (n != 0)
 	{
-		n = n / 10;
 		size++;
+		n = n / 16;
 	}
 	return (size);
 }
 
-int	ft_putnbr_base(int nb, char *base)
+int	ft_putnbr_base(unsigned int nb, char *base)
 {
-	if (nb < 0)
-		nb = -nb;
 	if (nb >= ft_strlen(base))
 	{
 		ft_putnbr_base(nb / ft_strlen(base), base);

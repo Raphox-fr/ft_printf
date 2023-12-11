@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:12:29 by rafaria           #+#    #+#             */
-/*   Updated: 2023/12/08 16:38:35 by raphox           ###   ########.fr       */
+/*   Updated: 2023/12/11 17:19:25 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@
 
 int ft_get_size_ptr(void *ptr);
 int	ft_putchar(char c);
-int	ft_putnbr_base(int nb, char *base);
+int	ft_putnbr_base(unsigned int nb, char *base);
+void	write_adress(unsigned long long ptr);
+int	ft_utoaa(unsigned int nb, char *base);
 int	ft_putstr(char *str);
 int	ft_itoa(int n);
-int	ft_unsigned_itoa(int n);
+int ft_ptr_adress(void *ptr);
 
 #endif

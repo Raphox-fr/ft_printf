@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:16:48 by rafaria           #+#    #+#             */
-/*   Updated: 2023/12/08 18:18:25 by raphox           ###   ########.fr       */
+/*   Updated: 2023/12/11 17:33:31 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,19 @@ int	ft_print(int type, va_list arg)
     else if (type == 's')
         return (ft_putstr((va_arg(arg, char *))));
     else if (type == 'p')
-        return (ft_putnbr_base((va_arg(arg, int)), "0"));
+        return (ft_ptr_adress((va_arg(arg, void *))));
     else if (type == 'i' || type == 'd')
         return (ft_itoa((va_arg(arg, int))));
-    // else if (type == 'u')
-    //     return (ft_unsigned_itoa((va_arg(arg, int))));
+    else if (type == 'u')
+        return (ft_utoaa((va_arg(arg, unsigned int)), "0123456789"));
     else if (type == 'x')
-        return (ft_putnbr_base((va_arg(arg, int)), "0123456789abcdef"));
+        return (ft_putnbr_base((va_arg(arg, unsigned int)), "0123456789abcdef"));
     else if (type == 'X')
-        return (ft_putnbr_base((va_arg(arg, int)), "0123456789ABCDEF"));
+        return (ft_putnbr_base((va_arg(arg, unsigned int)), "0123456789ABCDEF"));
     else if (type == '%')
         return(ft_putchar(va_arg(arg, int)));
     return(0);
 }
-
-// good :
-// c good
-// s  good
-// p no good afficher l adresse
-// i
-// u
-// x
-// X
-// %
-
-//  i and d = Signed decimal integer itoa
-//  u = Unsigned decimal integer itoa modifier, sans signe negatif
 
 
 int	ft_printf(const char *str, ...)
@@ -73,21 +60,21 @@ int	ft_printf(const char *str, ...)
 
 
 // c good
-// s  good
-// p no good afficher l adresse
+// s good
+// p good
+// d good
 // i good
-// u pas fait
-// x
-// X
-// %
+// u good
+// x good 
+// X good
+// % good
 
 int main(void)
 {
-    int i;
-    i = 42;
-    
-    printf("%d\n", ft_printf("%x\n", -5));
-    printf("\n\n\n");
-    printf("%d\n", printf("%x\n", -5));
+    unsigned int i;
+    i = 2;
 
+    printf("%d\n", ft_printf("%u\n", i));
+    printf("\n");
+    printf("%d\n", printf("%u\n", i));
 }
