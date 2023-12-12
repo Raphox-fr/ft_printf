@@ -3,24 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:54:19 by rafaria           #+#    #+#             */
-/*   Updated: 2023/12/06 18:52:54 by raphox           ###   ########.fr       */
+/*   Updated: 2023/12/12 18:42:50 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lib.h"
-#include <unistd.h>
+#include "ft_printf.h"
 
 int	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
-		write(1, &str[i], 1);
 		i++;
 	}
 	return (i);

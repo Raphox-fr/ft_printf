@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utoaa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 20:03:07 by raphox            #+#    #+#             */
-/*   Updated: 2023/12/11 19:42:14 by raphox           ###   ########.fr       */
+/*   Updated: 2023/12/12 15:55:55 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lib.h"
-#include <unistd.h>
+#include "ft_printf.h"
 
 unsigned int	ft_strlen_all(char *str)
 {

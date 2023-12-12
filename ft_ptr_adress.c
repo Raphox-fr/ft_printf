@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ptr_adress.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:41:34 by raphox            #+#    #+#             */
-/*   Updated: 2023/12/11 16:05:07 by raphox           ###   ########.fr       */
+/*   Updated: 2023/12/12 15:56:13 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lib.h"
+#include "ft_printf.h"
 
 static size_t	get_size(unsigned long long n)
 {
@@ -34,18 +34,14 @@ void	write_adress(unsigned long long ptr)
 	write(1, &base[ptr % 16], 1);
 }
 
-int ft_ptr_adress(void *ptr)
+int	ft_ptr_adress(void *ptr)
 {
 	if (ptr == NULL)
 		return (write(1, "(nil)", 5));
 	write(1, "0x", 2);
 	write_adress((unsigned long long)ptr);
-		
-    return (get_size((unsigned long long)ptr) + 2);
+	return (get_size((unsigned long long)ptr) + 2);
 }
-
-
-
 
 // int main()
 // {

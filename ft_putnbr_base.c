@@ -1,8 +1,5 @@
 
-
-#include "ft_lib.h"
-#include<unistd.h>
-
+#include "ft_printf.h"
 
 unsigned int	ft_strlen(char *str)
 {
@@ -16,6 +13,8 @@ unsigned int	ft_strlen(char *str)
 
 static size_t	ft_get_size(unsigned int n)
 {
+	if (n == 0)
+		return (1);
 	size_t	size;
 
 	size = 0;

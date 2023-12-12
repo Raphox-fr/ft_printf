@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lib.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:12:29 by rafaria           #+#    #+#             */
-/*   Updated: 2023/12/11 17:19:25 by raphox           ###   ########.fr       */
+/*   Updated: 2023/12/12 17:19:42 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIB_H
-# define FT_LIB_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include<stdarg.h>
 # include<stddef.h>
@@ -22,6 +22,7 @@
 # include<unistd.h>
 # include <stdint.h>
 
+int	ft_printf(const char *str, ...);
 int ft_get_size_ptr(void *ptr);
 int	ft_putchar(char c);
 int	ft_putnbr_base(unsigned int nb, char *base);

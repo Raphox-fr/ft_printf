@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 20:03:07 by raphox            #+#    #+#             */
-/*   Updated: 2023/12/11 17:18:02 by raphox           ###   ########.fr       */
+/*   Updated: 2023/12/12 18:05:10 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lib.h"
+#include "ft_printf.h"
 
 static int	ft_get_size(int n)
 {
@@ -28,14 +28,13 @@ static int	ft_get_size(int n)
 }
 
 void	ft_fill_res(int size, int locate, int n, char *res)
-{ 
+{
 	while (size > locate)
 	{
 		res[size - 1] = n % 10 + '0';
 		n = n / 10;
 		size--;
 	}
-	
 }
 
 int	ft_itoa(int n)
@@ -65,6 +64,7 @@ int	ft_itoa(int n)
 	ft_fill_res(size, locate, n, res);
 	res[size] = '\0';
 	ft_putstr(res);
+	free(res);
 	return (size);
 }
 
