@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:16:48 by rafaria           #+#    #+#             */
-/*   Updated: 2023/12/12 18:51:16 by rafaria          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:43:56 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,16 @@ int	ft_printf(const char *str, ...)
 // x good
 // X good
 // % good
-
-
 // -g dans mes flag pour numero d ligne
 // gcc nom du fichier -> valgrind ./a.out -> leak check=full
 
-int	main(void)
-{
-	char *str = "yoo";
-	printf("%d", ft_printf(" NULL %s NULL ", NULL));
-	printf("\n");
-	printf("%d", printf(" NULL %s NULL ", NULL));
-}
+
+// int	main(void)
+// {
+// 	printf("%d", ft_printf(" NULL %s NULL ", NULL));
+
+// 	printf("\n");
+
+// 	printf("%d", printf(" NULL %s NULL ", NULL));
+// }
+
