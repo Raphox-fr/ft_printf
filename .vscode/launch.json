@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/rafaria/Documents/Wa",
-      "program": "/home/rafaria/Documents/Wa/build/Debug/outDebug",
+      "cwd": "/home/raphox/Documents/ft_printf_to_push",
+      "program": "/home/raphox/Documents/ft_printf_to_push/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

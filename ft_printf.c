@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:16:48 by rafaria           #+#    #+#             */
-/*   Updated: 2023/12/15 15:43:56 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/01/04 15:09:23 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	ft_printf(const char *str, ...)
 	total = 0;
 	bee = 0;
 	va_start(arg, str);
+	if (!str)
+		return (-1);
 	while (str[bee])
 	{
 		if (str[bee] == '%')
@@ -62,12 +64,8 @@ int	ft_printf(const char *str, ...)
 }
 
 // c good
-
-// s good 10 pas bon la diff :
-// NULL  NULL10
-// NULL (null) NULL16
-
-// p good 
+// s good
+// p good
 // d good
 // i good
 // u good
@@ -85,5 +83,5 @@ int	ft_printf(const char *str, ...)
 // 	printf("\n");
 
 // 	printf("%d", printf(" NULL %s NULL ", NULL));
+// 	printf("\n");
 // }
-
