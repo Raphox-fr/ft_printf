@@ -11,17 +11,17 @@ unsigned int	ft_strlen(char *str)
 	return (i);
 }
 
-static size_t	ft_get_size(unsigned int n)
+static size_t	ft_get_size(unsigned int n, char *base)
 {
-	if (n == 0)
-		return (1);
 	size_t	size;
 
+	if (n == 0)
+		return (1);
 	size = 0;
 	while (n != 0)
 	{
 		size++;
-		n = n / 16;
+		n = n / ft_strlen(base);
 	}
 	return (size);
 }
@@ -33,7 +33,7 @@ int	ft_putnbr_base(unsigned int nb, char *base)
 		ft_putnbr_base(nb / ft_strlen(base), base);
 	}
 	ft_putchar(base[nb % ft_strlen(base)]);
-	return (ft_get_size(nb));
+	return (ft_get_size(nb, base));
 }
 
 // int	main(void)

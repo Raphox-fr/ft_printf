@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:16:48 by rafaria           #+#    #+#             */
-/*   Updated: 2024/01/04 15:09:23 by raphox           ###   ########.fr       */
+/*   Updated: 2024/01/04 16:23:51 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_print(int type, va_list arg)
 	else if (type == 'i' || type == 'd')
 		return (ft_itoa((va_arg(arg, int))));
 	else if (type == 'u')
-		return (ft_utoaa((va_arg(arg, unsigned int)), "0123456789"));
+		return (ft_putnbr_base((va_arg(arg, unsigned int)), "0123456789"));
 	else if (type == 'x')
 		return (ft_putnbr_base((va_arg(arg, unsigned int)),
 				"0123456789abcdef"));
@@ -74,7 +74,6 @@ int	ft_printf(const char *str, ...)
 // % good
 // -g dans mes flag pour numero d ligne
 // gcc nom du fichier -> valgrind ./a.out -> leak check=full
-
 
 // int	main(void)
 // {
